@@ -1,0 +1,8 @@
+import time
+a = input("enter the  sentence")
+c = 0
+for i in range(len(a)):
+    if (a[i] == " " and a[i + 1] != ""):
+        c = c + 1
+time.sleep(1)
+print("the number of words are", c)
