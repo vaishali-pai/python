@@ -1,0 +1,6 @@
+b=int(input("enter the num"))
+tot=0
+while(b>0):
+    tot=tot+b%10
+    b=b//10
+print("the sum of digit is",tot)
