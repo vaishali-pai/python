@@ -1,0 +1,9 @@
+#4.problem statemwnt if the input is  more than the 100 it should not add only add if less then 100 and sum it
+sum=0
+while(True):
+    x=int(input("enter marks:"))
+    if x<=100:
+         sum+=x
+    if x==0:
+        break
+print(sum)
