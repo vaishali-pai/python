@@ -1,0 +1,3 @@
+s=" gill sara"
+a=" ".join(i for i in s if i not in "aeiou")
+print(a)
