@@ -1,0 +1,11 @@
+import calendar
+from datetime import datetime
+a=input("enter first date(yyyy:mm:dd):")
+b=input("enter second date(yyyy:mm:dd):")
+d1=datetime.strptime(a,"%y-%m-%d")
+d2=datetime.strptime(a,"%y-%m-%d")
+diff=d2-d1
+print("Different :",abs(diff),"days")
+
+
+
