@@ -1,0 +1,46 @@
+import random
+name1=input("Enter player 1: ")
+name2=input("Enter player 2: ")
+print("System has fixed 5 numbers")
+
+num=[]
+while(len(num)!=5):
+    d = random.randint(1,10)
+    if(d not in num):
+        num.append(d)
+print("-------------------------------------------")
+count1=0
+count2=0
+player1=[]
+player2=[]
+for i in range(3): # represents 3 chances
+    print(f"-----------ROUND {i}-------------")
+    print(f"Player {name1}! Guess your choice")
+    ch = int(input()) # user input
+    while(ch in player1 or ch in player2): # 'or', not 'and' is used here
+        ch = int(input("This is a repitiion of the number. Please try again: "))
+    player1.append(ch)
+    if ch in num:
+        count1=count1+1
+        print("----->>CORRECT!>>------")
+    else:
+        print("--------BETTER LUCK NEXT TIME-------")
+
+
+    print(f"Player {name2}! Guess your choice")
+    ch = int(input()) # user input
+    while(ch in player1 or ch in player2): # 'or', not 'and' is used here
+        ch = int(input("This is a repitiion of the number. Please try again: "))
+    player2.append(ch)
+    if ch in num:
+        count2=count2+1
+        print("------>>CORRECT!>>-------")
+    else:
+        print("--------BETTER LUCK NEXT TIME-------")
+print(f"--------------Final Scores--------------- ")
+print(f"player {name1} are: {count1}")
+print(f"player {name2} are: {count2}")
+if count1>count2:
+    print(f"Player {name1} wins!")
+else:
+    print(f"Player {name2} wins!")
