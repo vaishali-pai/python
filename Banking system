@@ -1,0 +1,88 @@
+# Bank Management System
+
+# Dictionary with account numbers and their corresponding balances
+accounts = {
+    101: 5000,
+    102: 3000,
+    103: 7000,
+    104: 10000,
+    105: 2000,
+    106: 1500,
+    107: 8000,
+    108: 2500
+}
+
+# Deposit function
+def deposit(accounts, dep, acc_no):
+    accounts[acc_no] += dep
+    print(f"The amount ₹{dep} has been deposited into account {acc_no}.")
+
+# Withdraw function
+def withdraw(accounts, withd, acc_no):
+    if withd > accounts[acc_no]:
+        print("Insufficient balance. Withdrawal denied.")
+    else:
+        accounts[acc_no] -= withd
+        print(f"The amount ₹{withd} has been withdrawn from account {acc_no}.")
+
+# Transfer function
+def transfer(accounts, from_acc, to_acc, amount):
+    if to_acc not in accounts:
+        print("Recipient account does not exist.")
+        return
+    if amount > accounts[from_acc]:
+        print("Insufficient balance. Transfer failed.")
+    else:
+        accounts[from_acc] -= amount
+        accounts[to_acc] += amount
+        print(f"₹{amount} transferred from account {from_acc} to account {to_acc}.")
+
+# Menu function
+def menu(acc_no):
+    while True:
+        print("\n--------- Bank Menu ---------")
+        print("1. Check Balance")
+        print("2. Deposit")
+        print("3. Withdraw")
+        print("4. Transfer")
+        print("5. Logout")
+        choice = int(input("Enter your choice: "))
+
+        if choice == 1:
+            print(f"Account {acc_no} balance: Rs{accounts[acc_no]}")
+
+        elif choice == 2:
+            dep = int(input("Enter amount to deposit: Rs"))
+            deposit(accounts, dep, acc_no)
+
+        elif choice == 3:
+            withd = int(input("Enter amount to withdraw: Rs"))
+            withdraw(accounts, withd, acc_no)
+
+        elif choice == 4:
+            to_acc = int(input("Enter recipient account number: "))
+            amount = int(input("Enter amount to transfer: Rs"))
+            transfer(accounts, acc_no, to_acc, amount)
+
+        elif choice == 5:
+            print(f"Logging out from account {acc_no}...\n")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+# Main program loop
+while True:
+    print("======= Welcome to the Banking System =======")
+    try:
+        acc_no = int(input("Enter your account number (or 0 to exit): "))
+        if acc_no == 0:
+            print("Thank you for using the Banking System. Goodbye!")
+            break
+        elif acc_no in accounts:
+            print(f"Welcome, Account {acc_no}!")
+            menu(acc_no)
+        else:
+            print("Account number not found. Try again.")
+
+
