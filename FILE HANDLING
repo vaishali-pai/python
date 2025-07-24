@@ -1,0 +1,4 @@
+with open("text_doc.txt", 'r') as file:
+    data = file.readlines()
+    for i in data:
+        print(i.split())
