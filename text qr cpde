@@ -1,0 +1,7 @@
+import qrcode
+a=qrcode.QRCode()
+text="Hey Everyone hello" # write message
+a.add_data(text)
+b=a.make_image(fill_color="black",back_color="white")
+b.save("cccccc.png") # creeates and save image of the QRcode. If run again, it creates a new file with the same name
+print("Save successfully!")
